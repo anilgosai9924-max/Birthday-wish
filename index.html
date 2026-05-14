@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<body>
+<audio controls autoplay loop>
+<source src="C:\Users\Admin\Downloads\Full VideoTu Hi Yaar Mera Pati Patni Aur Woh Kartik A,Bhumi P,Ananya P Rochak,Arijit S,Neha K_MP3 (mp3cut.net).mp3">
+</audio>
+
+</body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Bestie! ✨</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        :root {
+            --primary: #ff85a2;
+            --secondary: #fce4ec;
+            --accent: #ff4081;
+            --text: #4a4a4a;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--secondary);
+            color: var(--text);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            min-height: 100vh;
+            display: none; /* Hidden by default for "page" effect */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .active { display: flex; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* --- Page 1: The Surprise Box --- */
+        #page1 { background: linear-gradient(135deg, #fce4ec 0%, #ffd1dc 100%); }
+        .gift-container { cursor: pointer; transition: transform 0.3s; }
+        .gift-container:hover { transform: scale(1.1); }
+        .gift-box { font-size: 120px; filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1)); }
+        h1 { font-family: 'Dancing Script', cursive; font-size: 3.5rem; color: var(--accent); margin-bottom: 10px; }
+
+        /* --- Page 2: Polaroid Gallery --- */
+        #page2 { background: #fff5f7; padding: 50px 20px; }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1100px;
+            margin-top: 30px;
+        }
+        .polaroid {
+            background: white;
+            padding: 12px 12px 35px 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transform: rotate(var(--r));
+            transition: 0.4s ease;
+            border: 1px solid #eee;
+        }
+        .polaroid:hover { transform: rotate(0deg) scale(1.1); z-index: 10; box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+        .polaroid img { width: 100%; height: 250px; object-fit: cover; border-radius: 2px; }
+        .polaroid p { margin-top: 15px; font-family: 'Dancing Script', cursive; font-size: 1.4rem; color: #555; }
+
+        /* --- Page 3: Interactive Cake --- */
+        #page3 { background: #fff0f3; }
+        .cake-wrapper { position: relative; margin: 40px 0; }
+        .cake { position: relative; width: 220px; height: 140px; background: #f48fb1; border-radius: 15px 15px 0 0; box-shadow: 0 4px 0 #ad1457; }
+        .cake::after { content: ""; position: absolute; top: 30px; width: 100%; height: 25px; background: rgba(255,255,255,0.3); }
+        
+        .candle {
+            position: absolute; top: -50px; left: 50%; transform: translateX(-50%);
+            width: 16px; height: 60px; background: linear-gradient(to bottom, #fff, #ffebee); border-radius: 8px;
+            cursor: pointer; z-index: 2;
+        }
+        .flame {
+            position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
+            width: 18px; height: 30px; background: #ff9800; border-radius: 50% 50% 20% 20%;
+            box-shadow: 0 0 15px #ff9800, 0 0 25px #ffeb3b; animation: flicker 0.15s infinite;
+        }
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1); opacity: 0.9; }
+            50% { transform: translateX(-50%) scale(1.1) rotate(2deg); opacity: 1; }
+            100% { transform: translateX(-50%) scale(1); opacity: 0.9; }
+        }
+
+        /* --- Page 4: Heartfelt Letter --- */
+        #page4 { position: relative; overflow: hidden; background: #ffebee; }
+        .letter {
+            background: white; padding: 50px; border-radius: 30px;
+            max-width: 600px; box-shadow: 0 15px 40px rgba(255, 133, 162, 0.2);
+            line-height: 1.8; z-index: 5; position: relative;
+        }
+        .floating-heart {
+            position: absolute; color: var(--primary); font-size: 24px;
+            animation: floatUp 4s linear forwards; opacity: 0.8;
+            pointer-events: none;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Buttons & UI */
+        .btn {
+            margin-top: 30px; padding: 15px 35px;
+            background: var(--accent); color: white;
+            border: none; border-radius: 30px;
+            cursor: pointer; font-weight: 600; font-size: 1rem;
+            transition: 0.3s; letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(255, 64, 129, 0.3);
+        }
+        .btn:hover { background: #ff1261; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255, 64, 129, 0.4); }
+
+        .hint { font-size: 0.9rem; color: #888; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1: THE START -->
+    <section id="page1" class="active">
+        <h1>Hey Bestie... ✨</h1>
+        <div class="gift-container" onclick="nextPage(2)">
+            <div class="gift-box">🎁</div>
+            <p>I have a surprise for you!</p>
+            <p class="hint">(Click the gift to open)</p>
+        </div>
+    </section>
+
+    <!-- PAGE 2: POLAROID GALLERY -->
+    <section id="page2">
+        <h1>Moments That Matter 📸</h1>
+        <div class="gallery">
+            <!-- Replace these placeholder images with your actual photos -->
+            <div class="polaroid" style="--r: -3deg;">
+                <img src="C:\Users\Admin\Downloads\WhatsApp Image 2026-05-14 at 4.25.41 PM 43.jpeg">
+                <p>Partners in Crime 👯‍♀️</p>
+            </div>
+            <div class="polaroid" style="--r: 2deg;">
+                <img src="C:\Users\Admin\Downloads\WhatsApp Image 2026-05-14 at 4.25.41 PM (1).jpeg">
+                <p>Your Beautiful Smile ✨</p>
+            </div>
+            <div class="polaroid" style="--r: -1deg;">
+                <img src="C:\Users\Admin\Downloads\WhatsApp Image 2026-05-14 at 4.25.38 PM.jpeg">
+                <p>Coffee & Chitchat ☕</p>
+            </div>
+            <div class="polaroid" style="--r: 4deg;">
+                <img src="C:\Users\Admin\Downloads\WhatsApp Image 2026-05-14 at 4.25.41 PM.jpeg">
+                <p>Forever Bond ❤️</p>
+            </div>
+        </div>
+        <button class="btn" onclick="nextPage(3)">Wait, there's more! →</button>
+    </section>
+
+    <!-- PAGE 3: THE CAKE -->
+    <section id="page3">
+        <h1>Make a Wish! 🎂</h1>
+        <p>You're the brightest star! Blow out the candle.</p>
+        
+        <div class="cake-wrapper">
+            <div class="candle" id="candle" onclick="blowCandle()">
+                <div class="flame" id="flame"></div>
+            </div>
+            <div class="cake"></div>
+        </div>
+
+        <div id="wish-message" style="display:none; animation: fadeIn 1s;">
+            <h2 style="color: var(--accent); font-family: 'Dancing Script', cursive; font-size: 2.5rem;">Yay! Happy Birthday! 🎉</h2>
+            <button class="btn" onclick="nextPage(4)">Read my Letter 💌</button>
+        </div>
+    </section>
+
+    <!-- PAGE 4: HEARTFELT LETTER -->
+    <section id="page4">
+        <div class="letter">
+            <h1>To My Lovliest Best Friend, 💖</h1>
+            <p>
+"💖 HAPPY BIRTHDAY TO MY DREAREST AND MOST CARING LIFETIME BEST FRIEND 💖"
+                જન્મદિવસના આ શુભ અવસરે, એક દુઆ માંગુ છું,
+તું સદાય હસતી રહે, બસ એ જ આશા રાખું છું.
+ફૂલો જેવી તારી સુંદરતા, સૂરજ જેવું તારું તેજ હોય,
+તારા જીવનની દરેક ક્ષણ, ખુશીઓનો એક મેજ હોય! 🎂✨
+ક્યારેક તું મને લડાવે, તો ક્યારેક હસાવે છે,
+તું જ છે જે મારા મૌનને પણ સમજી જાય છે.
+લોકો કહે છે 'મિત્ર', પણ તું તો મારી 'જાન' છે,
+તારી સાથેની આ સફર, મારા જીવનનું વરદાન છે! 💖🌟
+<br>
+આજે તારો જન્મદિવસ છે અને સાચું કહું તો, હું ખૂબ જ નસીબદાર છું કે તારા જેવી સાચી અને નિઃસ્વાર્થ સખી મારા જીવનમાં છે. તું માત્ર મારી મિત્ર નથી, પણ મારો અરીસો છે, મારો સપોર્ટ સિસ્ટમ છે અને મારા દરેક ગાંડપણની ભાગીદાર છે! 👭💖
+ભગવાનને પ્રાર્થના કરું છું કે આ નવું વર્ષ તારા માટે અગણિત ખુશીઓ લઈને આવે. તારી આંખોમાં જે સપના છે, એ દરેક સપના પૂરા થાય. તું જ્યાં પણ પગ મૂકે, ત્યાં સફળતા તારા કદમ ચૂમે.[1][2][3][4] તારું સ્મિત ક્યારેય ઓછું ના થાય અને તું હંમેશા આવી જ ચુલબુલી અને બિન્દાસ રહે! 🌈✨🌻
+આપણી આ પાકી દોસ્તી વર્ષો સુધી આવી જ અકબંધ રહે અને આપણે સાથે મળીને આવી જ અઢળક યાદો બનાવતા રહીએ. તારી દરેક મુશ્કેલીમાં હું હંમેશા તારી સાથે હોઈશ, એ મારું વચન છે. 🤝💞
+ખૂબ બધી કેક ખાજે, ખૂબ મજા કરજે અને હંમેશા મસ્ત રહેજે! 🎂🍦🍫
+<br>
+"સંબંધોની દુનિયામાં તારી મિત્રતા સૌથી ખાસ છે,
+મારા જીવનમાં તારી હાજરી જ મારો વિશ્વાસ છે.
+MY LOVLIEST BESTUDAAA" 🌸💕✨
+
+                <br><br>
+                <b>I love you so much! ♾️</b>
+            </p>
+            <button class="btn" onclick="restart()">See it again? ✨</button>
+        </div>
+        <div id="heart-container"></div>
+    </section>
+
+    <script>
+        // Page Navigation
+        function nextPage(num) {
+            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+            document.getElementById('page' + num).classList.add('active');
+            
+            // Start heart animation only when on the last page
+            if(num === 4) {
+                startHearts();
+            }
+        }
+
+        function restart() {
+            location.reload(); // Refresh to start over
+        }
+
+        // Candle Blowing Logic
+        function blowCandle() {
+            const flame = document.getElementById('flame');
+            const wishMessage = document.getElementById('wish-message');
+            
+            flame.style.display = 'none';
+            wishMessage.style.display = 'block';
+            
+            // Trigger Confetti Explosion
+            const duration = 4 * 1000;
+            const animationEnd = Date.now() + duration;
+            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+            function randomInRange(min, max) {
+              return Math.random() * (max - min) + min;
+            }
+
+            const interval = setInterval(function() {
+              const timeLeft = animationEnd - Date.now();
+
+              if (timeLeft <= 0) {
+                return clearInterval(interval);
+              }
+
+              const particleCount = 50 * (timeLeft / duration);
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+        }
+
+        // Floating Hearts Animation
+        let heartInterval;
+        function startHearts() {
+            if (heartInterval) return; // Prevent multiple loops
+            const container = document.getElementById('heart-container');
+            heartInterval = setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                const hearts = ['❤️', '💖', '✨', '🌸', '💕'];
+                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                container.appendChild(heart);
+                
+                // Cleanup heart element after animation
+                setTimeout(() => heart.remove(), 4000);
+            }, 300);
+        }
+    </script>
+</body>
+</html>
